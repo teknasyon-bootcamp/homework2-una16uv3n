@@ -20,3 +20,15 @@
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
 
+// Validation true yapılarak functions.php dahil edilir.
+$validation = true;
+include 'functions.php';
+
+$randomCount = getRandomPostCount(1,100);
+
+/* Yukarıda oluşturulan random sayı  functions.php de geyLatesPost da ön tanımlı olarak gelen değişkenin yerine atanır ve döngünün sayısı belirleyerek oluştulan postlar foreach yapısında include edilen post.php de tanımladığımız div her bir eleman için posts.php de yazdırılır. */
+$posts = getLatestPosts($randomCount);
+
+foreach ($posts as $key => $post) {
+    include 'post.php';
+}

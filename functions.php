@@ -16,6 +16,8 @@
  * bekliyoruz. Bununla ilgili detaylı bilgi diğer betiklerde yer alıyor.
  */
 
+
+
 function getLatestPosts($count = 5)
 {
     $posts = [];
@@ -49,3 +51,23 @@ EOT;
 
 // Aşağıya fonksiyonu tanımlayabilirsiniz.
 
+//$min ve $max değeri alıp rastgele sayı üreten fonksiyon.
+function getRandomPostCount($min,$max){
+
+$random=rand($min,$max);
+
+return $random;
+}
+
+/* Validation include edilen sayfalarda true olarak set edilir, 
+bu sayfada tanımsız olduğu için direk çağrılınca hata verip kapanır.*/
+
+if(!$validation){
+
+    die("Sorry!, This page not allowed directly access.");
+
+}else{
+
+}
+
+?>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * post.php
  *
@@ -23,3 +22,21 @@
  * - `getPostDetails` fonksiyonu tetiklenerek ilgili içeriğin çıktısı gösterilmeli.
  */
 
+// Validation true yapılarak functions.php dahil edilir.
+$validation = true;
+include_once 'functions.php';
+
+    /* Yorum satırlarında olmama durumu için başlangıç değerleri verildi. isset değeri olması durumunda true dönüyor.Eğer değer varsa funstions.php de posts dizisi title ve type şeklinde oluşturulan dizi post.php de post olarak alınır ve değer atamaları yapılır.$color dizisi yukarıda belirtilen key,value değerlerine göre tanımlanmıştır. 
+    */
+    if(!isset($id)){ $id = 1;} else {$id = $key; }
+    if(!isset($title)){ $title = "Title Yok"; } else { $title = $post['title']; }
+    if(!isset($type)){ $type = "green"; } else { $type = $post['type']; }
+    
+
+    $color=["urgent"=>"red","warning"=>"yellow","normal"=>"null","green"=>"green"];
+
+echo "<div style=background-color:". $color[$type] .">";
+getPostDetails($id, $title); 
+echo "</div>";
+
+?>
